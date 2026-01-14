@@ -17,7 +17,7 @@ public class RSTProject {
 		randomNum = (int)(Math.random() * 99) +1;
 		
 		// loop until user guesses right
-		while (userGuess != randomNum)  {    
+		while (userGuess != randomNum)  {        
 			
 			
 			
