@@ -9,7 +9,7 @@ public class RSTProject {
 		// variables
 		int randomNum = 0;
 		int userGuess = 0;
-		int guessCounter = 0;
+		int guessCounter = 0; 
 		
 		Scanner input = new Scanner(System.in);
 		
@@ -17,7 +17,7 @@ public class RSTProject {
 		randomNum = (int)(Math.random() * 99) +1;
 		
 		// loop until user guesses right
-		while (userGuess != randomNum)  {
+		while (userGuess != randomNum)  {    
 			
 			
 			
