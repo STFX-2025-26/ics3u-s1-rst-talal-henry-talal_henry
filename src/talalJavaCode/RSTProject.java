@@ -87,85 +87,81 @@ public class RSTProject {
 		btnConfirmChoice.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				int userChoice = 0;
-				int aiChoice = 0;
-				
+				String userChoice = "";
+				String[] aiChoice = new String[3];
+				aiChoice[0] = "rock";
+				aiChoice[1] = "paper";
+				aiChoice[2] = "scissors";
 				
 				
 				try {
 					
-					userChoice = Integer.parseInt(textField1.getText());
+					userChoice = (textField1.getText());
 				}
 				
 				catch (Exception e2) {
 					
 					JOptionPane.showMessageDialog(null, "Invalid Entry");
 				}
+			
+				int a = ( (int) (Math.random() * (aiChoice.length)));
+				
+				textField2.setText(Integer.toString((a)));
 				
 				
-				aiChoice = (int)Math.round(Math.random()*2+1);
-				textField2.setText(Integer.toString(aiChoice));
-					
-				
-				int rock = 1;
-				int paper = 2;
-				int scissors = 3;
-				String a1 = "User Wins";
-				String b1 = "Computer Wins";
-				String c1 = "Tie";
 				
 				// User A Wins Rock - Scissors 
-				if (a.equals("rock") && b.equals("scissors")) {
+				if (userChoice.equals("rock") && aiChoice.equals("scissors")) {
 					
-					setTextfield3();	
+					textField3.setText("You Win");	
 				}
 				
 				// User A Wins Paper - Rock
-				else if (a.equals("paper") && b.equals("rock")) {
+				else if (userChoice.equals("paper") && aiChoice.equals("rock")) {
 					
-					return a1;
+					textField3.setText("You Win!");;
 				}
 				
 				// User A Wins Scissors - Paper
-				else if (a.equals("scissors") && b.equals("paper")) {
+				else if (userChoice.equals("scissors") && aiChoice.equals("paper")) {
 					
-					return a1;
+					textField3.setText("You Win!");;
 				}
 				
 				// User B (Computer) Wins Rock - Scissors
-				else if (b.equals("rock") && a.equals("scissors")) {
+				else if (aiChoice.equals("rock") && userChoice.equals("scissors")) {
 					
-					return b1;
+					textField3.setText("You Lost ;(");;
 				}
 				
 				// User B (Computer) Wins Paper - Rock
-				else if (b.equals("paper") && a.equals("rock")) {
+				else if (aiChoice.equals("paper") && userChoice.equals("rock")) {
 					
-					return b1;
+					textField3.setText("You Lost ;(");;
 				}
 				
 				// User B (Computer) Wins Scissors - Paper
-				else if (b.equals("scissors") && a.equals("paper")) {
+				else if (aiChoice.equals("scissors") && userChoice.equals("paper")) {
 					
-					return b1;
+					textField3.setText("You Lost ;(");;
 				}
 						
 				// Tie Rock - Rock
-				else if (a.equals("rock") && b.equals("rock")) {
+				else if (userChoice.equals("rock") && aiChoice.equals("rock")) {
 					
-					return c1;
+					textField3.setText("Tie!");;
 				}
 				
 				// Tie Paper - Paper
-				else if (a.equals("paper") && b.equals("paper")) {
+				else if (userChoice.equals("paper") && aiChoice.equals("paper")) {
 					
-					return c1;
+					textField3.setText("Tie!");;
 				}
 				
 				// Tie Scissors - Scissors
 				else {
 					
-					return c1;
+					textField3.setText("Tie!");;
 				}
 				
 			}
