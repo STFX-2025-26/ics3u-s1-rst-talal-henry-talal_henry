@@ -90,6 +90,8 @@ public class RSTProject {
 				int userChoice = 0;
 				int aiChoice = 0;
 				
+				
+				
 				try {
 					
 					userChoice = Integer.parseInt(textField1.getText());
@@ -105,15 +107,66 @@ public class RSTProject {
 				textField2.setText(Integer.toString(aiChoice));
 					
 				
-				if (userChoice == aiChoice) {
-					
-					
-				textField3.setText("Tie!");
-			}
-			
-					
-			
+				int rock = 1;
+				int paper = 2;
+				int scissors = 3;
+				String a1 = "User Wins";
+				String b1 = "Computer Wins";
+				String c1 = "Tie";
 				
+				// User A Wins Rock - Scissors 
+				if (a.equals("rock") && b.equals("scissors")) {
+					
+					setTextfield3();	
+				}
+				
+				// User A Wins Paper - Rock
+				else if (a.equals("paper") && b.equals("rock")) {
+					
+					return a1;
+				}
+				
+				// User A Wins Scissors - Paper
+				else if (a.equals("scissors") && b.equals("paper")) {
+					
+					return a1;
+				}
+				
+				// User B (Computer) Wins Rock - Scissors
+				else if (b.equals("rock") && a.equals("scissors")) {
+					
+					return b1;
+				}
+				
+				// User B (Computer) Wins Paper - Rock
+				else if (b.equals("paper") && a.equals("rock")) {
+					
+					return b1;
+				}
+				
+				// User B (Computer) Wins Scissors - Paper
+				else if (b.equals("scissors") && a.equals("paper")) {
+					
+					return b1;
+				}
+						
+				// Tie Rock - Rock
+				else if (a.equals("rock") && b.equals("rock")) {
+					
+					return c1;
+				}
+				
+				// Tie Paper - Paper
+				else if (a.equals("paper") && b.equals("paper")) {
+					
+					return c1;
+				}
+				
+				// Tie Scissors - Scissors
+				else {
+					
+					return c1;
+				}
 				
 			}
 		});
