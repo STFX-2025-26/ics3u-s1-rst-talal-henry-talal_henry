@@ -73,6 +73,7 @@ public class RSTProject {
 		frame.getContentPane().add(lblNewLabel_1);
 		
 		textField2 = new JTextField();
+		textField2.setForeground(new Color(128, 0, 64));
 		textField2.setBounds(278, 161, 86, 20);
 		frame.getContentPane().add(textField2);
 		textField2.setColumns(10);
@@ -88,11 +89,11 @@ public class RSTProject {
 			public void actionPerformed(ActionEvent e) {
 				
 				String userChoice = "";
-				String[] aiChoice = new String[3];
-				aiChoice[0] = "rock";
-				aiChoice[1] = "paper";
-				aiChoice[2] = "scissors";
-				
+				String aiChoice = "";
+				String[] choice = new String[3];
+				choice[0] = "rock";
+				choice[1] = "paper";
+				choice[2] = "scissors";
 				
 				try {
 					
@@ -104,64 +105,66 @@ public class RSTProject {
 					JOptionPane.showMessageDialog(null, "Invalid Entry");
 				}
 			
-				int a = ( (int) (Math.random() * (aiChoice.length)));
+				int a = ( (int) (Math.random() * (choice.length)));
 				
-				textField2.setText(Integer.toString((a)));
+				textField2.setText(choice[a]);
 				
+				aiChoice = choice[a];
 				
 				
 				// User A Wins Rock - Scissors 
 				if (userChoice.equals("rock") && aiChoice.equals("scissors")) {
 					
-					textField3.setText("You Win");	
+					textField3.setText("You Win!");	
 				}
 				
 				// User A Wins Paper - Rock
 				else if (userChoice.equals("paper") && aiChoice.equals("rock")) {
 					
-					textField3.setText("You Win!");;
+					textField3.setText("You Win!");
 				}
 				
 				// User A Wins Scissors - Paper
 				else if (userChoice.equals("scissors") && aiChoice.equals("paper")) {
 					
-					textField3.setText("You Win!");;
+					textField3.setText("You Win!");
 				}
 				
 				// User B (Computer) Wins Rock - Scissors
 				else if (aiChoice.equals("rock") && userChoice.equals("scissors")) {
 					
-					textField3.setText("You Lost ;(");;
+					textField3.setText("You Lost");
 				}
 				
 				// User B (Computer) Wins Paper - Rock
 				else if (aiChoice.equals("paper") && userChoice.equals("rock")) {
 					
-					textField3.setText("You Lost ;(");;
+					textField3.setText("You Lost");
 				}
 				
 				// User B (Computer) Wins Scissors - Paper
 				else if (aiChoice.equals("scissors") && userChoice.equals("paper")) {
 					
-					textField3.setText("You Lost ;(");;
+					textField3.setText("You Lost");
 				}
+				
 						
 				// Tie Rock - Rock
 				else if (userChoice.equals("rock") && aiChoice.equals("rock")) {
 					
-					textField3.setText("Tie!");;
+					textField3.setText("Tie!");
 				}
 				
 				// Tie Paper - Paper
 				else if (userChoice.equals("paper") && aiChoice.equals("paper")) {
 					
-					textField3.setText("Tie!");;
+					textField3.setText("Tie!");
 				}
 				
 				// Tie Scissors - Scissors
 				else {
 					
-					textField3.setText("Tie!");;
+					textField3.setText("Tie!");
 				}
 				
 			}
@@ -171,6 +174,7 @@ public class RSTProject {
 		frame.getContentPane().add(btnConfirmChoice);
 		
 		textField3 = new JTextField();
+		textField3.setForeground(new Color(128, 0, 64));
 		textField3.setBounds(159, 88, 121, 20);
 		frame.getContentPane().add(textField3);
 		textField3.setColumns(10);
