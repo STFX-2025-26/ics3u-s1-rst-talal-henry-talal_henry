@@ -14,6 +14,9 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 public class RSTProject {
+	String userChoice = "";
+	String aiChoice = "";
+	
 
 	private JFrame frame;
 	private JTextField textField1;
@@ -88,86 +91,40 @@ public class RSTProject {
 		btnConfirmChoice.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				String userChoice = "";
-				String aiChoice = "";
-				String[] choice = new String[3];
-				choice[0] = "rock";
-				choice[1] = "paper";
-				choice[2] = "scissors";
-				
-				try {
-					
-					userChoice = (textField1.getText());
-				}
-				
-				catch (Exception e2) {
-					
-					JOptionPane.showMessageDialog(null, "Invalid Entry");
-				}
-			
-				int a = ( (int) (Math.random() * (choice.length)));
-				
-				textField2.setText(choice[a]);
-				
-				aiChoice = choice[a];
-				
-				
-				// User A Wins Rock - Scissors 
-				if (userChoice.equals("rock") && aiChoice.equals("scissors")) {
-					
-					textField3.setText("You Win!");	
-				}
-				
-				// User A Wins Paper - Rock
-				else if (userChoice.equals("paper") && aiChoice.equals("rock")) {
-					
-					textField3.setText("You Win!");
-				}
-				
-				// User A Wins Scissors - Paper
-				else if (userChoice.equals("scissors") && aiChoice.equals("paper")) {
-					
-					textField3.setText("You Win!");
-				}
-				
-				// User B (Computer) Wins Rock - Scissors
-				else if (aiChoice.equals("rock") && userChoice.equals("scissors")) {
-					
-					textField3.setText("You Lost");
-				}
-				
-				// User B (Computer) Wins Paper - Rock
-				else if (aiChoice.equals("paper") && userChoice.equals("rock")) {
-					
-					textField3.setText("You Lost");
-				}
-				
-				// User B (Computer) Wins Scissors - Paper
-				else if (aiChoice.equals("scissors") && userChoice.equals("paper")) {
-					
-					textField3.setText("You Lost");
-				}
-				
-						
-				// Tie Rock - Rock
-				else if (userChoice.equals("rock") && aiChoice.equals("rock")) {
-					
-					textField3.setText("Tie!");
-				}
-				
-				// Tie Paper - Paper
-				else if (userChoice.equals("paper") && aiChoice.equals("paper")) {
-					
-					textField3.setText("Tie!");
-				}
-				
-				// Tie Scissors - Scissors
-				else {
-					
-					textField3.setText("Tie!");
-				}
-				
-			}
+				// Get user choice 
+		        userChoice = textField1.getText().toLowerCase();
+
+		        // Generate AI choice
+		        String[] choices = {"rock", "paper", "scissors"};
+		        aiChoice = choices[(int)(Math.random() * 3)];
+
+		        // Display AI choice
+		        textField2.setText(aiChoice);
+
+		        // Decide result
+		        if (userChoice.equals(aiChoice)) {
+		            textField3.setText("Tie");
+		        } 
+		        else if (
+		            (userChoice.equals("rock") && aiChoice.equals("scissors")) ||
+		            (userChoice.equals("paper") && aiChoice.equals("rock")) ||
+		            (userChoice.equals("scissors") && aiChoice.equals("paper"))
+		        )
+		            textField3.setText("You Win!");
+		         
+		        else if (
+		            (userChoice.equals("rock") && aiChoice.equals("paper")) ||
+		            (userChoice.equals("paper") && aiChoice.equals("scissors")) ||
+		            (userChoice.equals("scissors") && aiChoice.equals("rock"))
+		        ) {
+		            textField3.setText("You Lose");
+		        }
+		        
+		        else {
+		            textField3.setText("Invalid Input, input Rock, Paper, or Scissors");
+		        }
+		        
+		    }
 		});
 		btnConfirmChoice.setFont(new Font("Times New Roman", Font.PLAIN, 12));
 		btnConfirmChoice.setBounds(159, 202, 121, 23);
@@ -175,7 +132,7 @@ public class RSTProject {
 		
 		textField3 = new JTextField();
 		textField3.setForeground(new Color(128, 0, 64));
-		textField3.setBounds(159, 88, 121, 20);
+		textField3.setBounds(90, 86, 265, 20);
 		frame.getContentPane().add(textField3);
 		textField3.setColumns(10);
 	}
