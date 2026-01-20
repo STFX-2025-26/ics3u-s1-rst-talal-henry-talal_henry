@@ -22,6 +22,9 @@ public class RSTProject {
 			
 			// get users guess
 			System.out.println("Enter Guess from 1 to 99");
+			
+			try {
+			
 			userGuess = sc.nextInt();
 			
 			guessCounter++;
@@ -40,6 +43,13 @@ public class RSTProject {
 			}
 			
 		}
+			catch (Exception e)  {
+				
+				System.out.println("Invalid input. Enter a number.");
+				sc.nextLine();
+			}
+		}	
+			
 		
 		sc.close();
 	}   
